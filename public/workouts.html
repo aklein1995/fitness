@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Aerobic capacity rules</title>
+</head>
+<body>
+
+  <form action="/">
+    <button >Go Back to Default Page</button>
+  </form>
+
+  <div>
+    <form onsubmit="return false" id="sport" method="get" >
+      <h3>Select the type of workout:</h3>
+      <select autofocus="true">
+        <option>Aerobic Threshold</option>
+        <option>Lactate Threshold</option>
+        <option>VO2 MAX</option>
+        <option>Strength Endurance</option>
+        <option>Swim</option>
+        <option>Row</option>
+        <option>Bike</option>
+      </select>
+      <button type="submit" onclick="reqCategory()">Get the workouts</button>
+    </form>
+  </div>
+  <br/>
+  
+  <div>
+    <form onsubmit="return false" id="lastForm">
+      <input type="number" min="1" max="21" required="true" placeholder="Enter last X entrys to be shown">
+      <button onclick="reqLast()">Get Last Entrys</button>
+    </form>
+  </div>
+  <br/><br/>
+
+  <div>
+      <form onsubmit="return reqByDate()" id="dateForm">
+        <h3>Search by date:</h3>
+        <input type="number" min="2017" max="2018" required="true" placeholder="year">
+        <input type="number" min="0" max="12" required="true" placeholder="month">
+        <input type="number" min="0" max="31" required="true" placeholder="day">
+        <br/><br/>
+        <button type="submit">Search</button>
+      </form>
+  </div>
+  <div id="result"></div>
+
+  <br/>
+
+  <div id="visits"></div>
+
+  <button onclick="reqTest()">PING</button>
+  <div id="textCX"></div>
+
+  <!--WebSockets-->
+  <script src="/socket.io/socket.io.js"></script> <!--IMPORTANTE: siempre primero import de la librería para hacer uso del socket!-->
+  <script src="./vue/aerobiccapacity.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <form action="/aerobic">
+    <button>Aerobic capacity section</button>
+  </form>
+
+  <br/>
+  <form onsubmit="return verify()" action="/scrape">
+      <button>GO scrapping!</button>
+  </form>
+  <div id="result"></div>
+
+  <div id="app">
+    <movie title="Aprendiendo..."></movie>
+    <div v-if="mostrar">
+      <p>{{ mensaje }}</p>
+      <img v-bind:src="imagen" width="300" />
+    </div>
+    <button v-on:click="toggleMostrar()">mostrar/ocultar</button>
+  </div>
+
+  <!--Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script>
+  <script src="./vue/vue.js"></script>
+  <script src="/app.js"></script>
+  <script>
+    function verify(){
+      if(confirm("Are you sure to continue?")){
+        return true;
+      } else {
+        return false;
+      }
+    }
+  </script>
+
+</body>
+
+</html>
